@@ -1,0 +1,28 @@
+@HostAddress = http://localhost:5171
+
+### 1. Convert Length: 10 Meters to Feet (GET)
+GET {{HostAddress}}/api/unitconversion/convert?value=10&from=meters&to=feet&precision=4
+Accept: application/json
+
+### 2. Convert Temperature: 100 Celsius to Fahrenheit (GET)
+GET {{HostAddress}}/api/unitconversion/convert?value=100&from=celsius&to=fahrenheit
+Accept: application/json
+
+### 3. Convert Weight/Mass: 5 Kilograms to Pounds (POST)
+POST {{HostAddress}}/api/unitconversion/convert
+Content-Type: application/json
+
+{
+  "value": 5,
+  "from": "kilograms",
+  "to": "pounds",
+  "precision": 4
+}
+
+### 4. Get All Categories and Supported Units
+GET {{HostAddress}}/api/unitconversion/categories
+Accept: application/json
+
+### 5. Get Units Filtered by Category (e.g., length, temperature, mass, weight)
+GET {{HostAddress}}/api/unitconversion/units?category=length
+Accept: application/json
